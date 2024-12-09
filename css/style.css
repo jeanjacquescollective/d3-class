@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+}
+
+
+.tooltip{
+    position: absolute;
+    background-color: white;
+    padding: 5px;
+    /* visibility: visible; */
+}
+
+.bar{
+    fill: var(--primary-color);
+}
+
+.bar.active{
+    fill: var(--secondary-color);
+}
