@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- zoek de juiste cdn lib voor mqtt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/5.10.3/mqtt.min.js" integrity="sha512-aAHZnL2a0x1+TorrKGJirDg51TAANQIynvlf7MyqPVZ65pgRyauc/Co5MKQqPIQqxVJ8U4iP6lf2iz6MYBX5zw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <script>
+        const client = mqtt.connect('wss://broker.hivemq.com:8884/mqtt');
+
+        client.on('connect', () => {
+            console.log('Verbonden met MQTT broker');
+            client.subscribe('channel/temperature-Jannes')
+        })
+
+        client.on('message', (topic, message) => {
+            console.log(`Ontvangen van ${topic}: ${message}`)
+        })
+    </script>
+</body>
+</html>
